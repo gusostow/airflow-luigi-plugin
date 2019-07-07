@@ -44,14 +44,14 @@ def downstream_transform(upstream_input_paths=None,
                          output_path=None,
                          **context):
     """
-    Add 'Downstream 1:' to the output from upstream task
+    Add 'My input was:' to the output from upstream task
     """
     with open(upstream_input_paths["upstream"]
               ) as f:  # Reference path with upstream task id
         input_value = f.read()
 
     with open(output_path, "r") as f:
-        f.write("Downstream 1: " + input_value)
+        f.write("My input was: " + input_value)
 
 
 downstream = LuigiOperator(task_id="downstream",
