@@ -7,9 +7,7 @@ authors = ["Augustus Ostow <ostowster@gmail.com>"]
 [tool.poetry.dependencies]
 python = ">=3.6"
 apache-airflow = "1.10.3"
-boto3 = "1.7.84"
-yapf = "*"
-moto = "*"
+boto3 = "*"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"
