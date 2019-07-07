@@ -30,7 +30,7 @@ def test_no_upstream(tmp_path):
         base_s3_key=base_s3_key
     )
 
-    t.execute(ti=mock.MagicMock())
+    t.execute({"ti": mock.MagicMock()})
     output_body_actual = conn.get_object(Bucket=bucket_name, Key=f"{base_s3_key}/{output_file_name}")["Body"].read().decode()
 
     assert output_body_actual == output_body

@@ -24,7 +24,7 @@ class LuigiOperator(BaseOperator):
         self.base_s3_key = base_s3_key
         self.aws_conn_id = aws_conn_id
 
-    def execute(self, **context):
+    def execute(self, context):
         s3_conn = S3Hook(aws_conn_id=self.aws_conn_id)
 
         upstream_input_paths = {}
@@ -33,7 +33,7 @@ class LuigiOperator(BaseOperator):
             if upstream_task.task_type == "LuigiOperator":
                 input_s3_key = context["ti"].xcom_pull(
                     key="output_s3_key", task_ids=upstream_task.task_id)
-                with NamedTemporaryFile("w", delete=False) as temp_input_file:
+                with NamedTemporaryFile("wb", delete=False) as temp_input_file:
                     key = s3_conn.get_key(input_s3_key,
                                           bucket_name=self.bucket_name)
                     key.download_fileobj(Fileobj=temp_input_file)
