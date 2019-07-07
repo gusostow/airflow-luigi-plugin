@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "luigi_plugin"
+version = "0.1.0"
+description = "LuigiOperator addition to Apache Airflow"
+authors = ["Augustus Ostow <ostowster@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.6"
+apache-airflow = "1.10.3"
+boto3 = "1.7.84"
+yapf = "*"
+moto = "*"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.0"
+yapf = "^0.27.0"
+flake8 = "^3.7"
+moto = "*"
+
+[tool.poetry.plugins."airflow.plugins"]
+"luigi_plugin" = "luigi_plugin:LuigiPlugin"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
