@@ -54,7 +54,7 @@ def downstream_transform(upstream_input_paths=None,
         f.write("Downstream 1: " + input_value)
 
 
-downstream = LuigiOperator(task_id="downstream_1",
+downstream = LuigiOperator(task_id="downstream",
                            tranform_callable=downstream_transform,
                            bucket_name="dag_interim_files",
                            output_file_name="{{ ti.name }}-{{ run_id }}.txt",
@@ -63,6 +63,7 @@ downstream = LuigiOperator(task_id="downstream_1",
 # Set dependency (dependencies control which input paths are wired into a task)
 upstream >> downstream
 ```
+After running this dag you would find the interim files for the upstream and downstream tasks on the S3 bucket.
 
 ## Installation
 
