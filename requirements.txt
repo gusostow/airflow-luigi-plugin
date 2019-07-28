@@ -1,0 +1,6 @@
+apache-airflow
+boto3
+pytest
+yapf
+flake8
+moto
