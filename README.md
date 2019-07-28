@@ -68,7 +68,7 @@ After running this dag you would find the interim files for the upstream and dow
 ## Installation
 
 ```bash
-pip install --no-deps git+https://github.com/gusostow/airflow-luigi-plugin
+pip install git+https://github.com/gusostow/airflow-luigi-plugin
 ```
 
 After installation, the operator is available like this
